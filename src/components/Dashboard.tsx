@@ -124,14 +124,7 @@ export default function Dashboard({
             transition={{ delay: 0.3 }}
             className="glass p-4 md:p-6 rounded-[32px] border-white/5 flex flex-col items-center gap-1 min-w-[100px] relative group overflow-hidden"
           >
-            <motion.div 
-              animate={{ 
-                opacity: [0.05, 0.15, 0.05],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute inset-0 bg-cobalt/10" 
-            />
+            <div className="absolute inset-0 bg-cobalt/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             <span className="text-2xl md:text-4xl font-black text-cobalt relative z-10">{streak}</span>
             <span className="text-[8px] font-black tracking-widest text-white/20 uppercase relative z-10">Day Streak</span>
           </motion.div>
@@ -194,8 +187,8 @@ export default function Dashboard({
           >
             <GlassCard className="flex flex-col items-center justify-center py-10 md:py-16 relative overflow-hidden" glow>
               {/* Decorative Background Elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-cobalt/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-cobalt/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
+              <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(46,91,255,0.05)_0%,transparent_70%)] rounded-full -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-[radial-gradient(circle,rgba(46,91,255,0.05)_0%,transparent_70%)] rounded-full translate-y-1/2 -translate-x-1/2" />
               
               <div className="absolute top-6 left-6 md:top-8 md:left-8">
                 <h2 className="text-[8px] md:text-[10px] font-black tracking-[0.4em] text-white/20 uppercase">
@@ -373,12 +366,12 @@ export default function Dashboard({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsGoalModalOpen(false)}
-              className="absolute inset-0 bg-bg/80 backdrop-blur-xl"
+              className="absolute inset-0 bg-bg/90"
             />
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
               className="relative w-full max-w-sm glass rounded-[40px] p-8 border-cobalt/20 aura-glow flex flex-col gap-6"
             >
               <div className="flex items-center justify-between">

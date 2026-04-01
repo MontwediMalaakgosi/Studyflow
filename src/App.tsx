@@ -244,34 +244,12 @@ export default function App() {
     <div className="min-h-screen bg-bg text-white selection:bg-cobalt selection:text-white">
       {/* Background Aura Glows */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-cobalt/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cobalt/5 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[radial-gradient(circle,rgba(46,91,255,0.1)_0%,transparent_70%)] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[radial-gradient(circle,rgba(46,91,255,0.05)_0%,transparent_70%)] rounded-full" />
         
         {/* Floating Decorative Blobs */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-[20%] right-[15%] w-32 h-32 bg-cobalt/5 blur-[60px] rounded-full"
-        />
-        <motion.div
-          animate={{
-            y: [0, 30, 0],
-            x: [0, -15, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute bottom-[30%] left-[20%] w-48 h-48 bg-purple-500/5 blur-[80px] rounded-full"
-        />
+        <div className="absolute top-[20%] right-[15%] w-64 h-64 bg-[radial-gradient(circle,rgba(46,91,255,0.05)_0%,transparent_70%)] rounded-full" />
+        <div className="absolute bottom-[30%] left-[20%] w-96 h-96 bg-[radial-gradient(circle,rgba(168,85,247,0.05)_0%,transparent_70%)] rounded-full" />
       </div>
 
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -283,7 +261,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{ duration: 0.2 }}
             className="w-full"
           >
             {renderView()}
@@ -325,12 +303,12 @@ function TimerCompleteModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-bg/80 backdrop-blur-xl"
+            className="absolute inset-0 bg-bg/90"
           />
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
             className="relative w-full max-w-md glass rounded-[40px] p-12 border-cobalt/20 aura-glow flex flex-col items-center text-center gap-8"
           >
             <button
@@ -341,16 +319,14 @@ function TimerCompleteModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
             </button>
 
             <div className="relative">
-              <div className="absolute inset-0 bg-cobalt/20 blur-3xl rounded-full" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(46,91,255,0.3)_0%,transparent_70%)] scale-150 rounded-full" />
               <motion.div
                 animate={{ 
                   scale: [1, 1.1, 1],
                   rotate: [0, 5, -5, 0]
                 }}
                 transition={{ 
-                  duration: 4, 
-                  repeat: Infinity,
-                  ease: "easeInOut"
+                  duration: 0.5
                 }}
                 className="relative text-7xl"
               >
